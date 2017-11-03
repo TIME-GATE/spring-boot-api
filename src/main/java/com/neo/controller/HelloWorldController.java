@@ -7,34 +7,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 import com.neo.service.HelloWorldService;
-import com.neo.service.PersonasService;
 
 @RestController
 public class HelloWorldController {
 	
     //@Autowired
     private HelloWorldService helloWorldService = new HelloWorldService();
-    private PersonasService personasService = new PersonasService();
-
-    @RequestMapping(value = "/v1/api/getLabel", method = RequestMethod.GET)
-    public String getLabel() {
-        return helloWorldService.getLable();
-    }
 
     @RequestMapping(value = "/v1/api/uploadModel", method = RequestMethod.GET)
     public String uploadModel(@RequestParam Map<String, String> request) throws IOException {
         return request.get("pwd");
-    }
-
-    @RequestMapping(value = "/v1/api/sendContext", method = RequestMethod.GET)
-    public String sendContext(@RequestParam Map<String, String> request) throws IOException {
-        return "sdf";
-    }
-
-    @RequestMapping(value = "/v1/api/getPersonas", method = RequestMethod.GET)
-    public String getPersonas(@RequestParam Map<String, String> request) throws IOException {
-        return personasService.getPersonas();
-        //return "sdf";
     }
 
 }
