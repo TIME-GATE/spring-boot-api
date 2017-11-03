@@ -5,6 +5,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
+import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
@@ -15,14 +16,17 @@ import java.util.List;
 
 public class PersonasService {
 
-    public String getPersonas() {
+    public String getPersonas() throws IOException {
         Configuration conf = HBaseConfiguration.create();
-        conf.set("hbase.zookeeper.quorum", "master");
+        conf.set("hbase.zookeeper.quorum", "localhost");
         conf.set("hbase.zookeeper.property.clientPort", "2181");
-        // HBaseAdmin admin = new HBaseAdmin(conf);
-        // HTableDescriptor tableDescriptor = admin.getTableDescriptor(Bytes.toBytes("test"));
-        // byte[] name = tableDescriptor.getName(); 
-        // System.out.println("cf:");
+
+        HBaseAdmin admin = new HBaseAdmin(conf);
+        HTableDescriptor tableDescriptor = admin.getTableDescriptor(Bytes.toBytes("test"));
+        byte[] name = tableDescriptor.getName();
+        System.out.println("+++++++++++++++++");
+        System.out.println(name);
+        System.out.println("+++++++++++++++++");
         return "Hello World";
     }
 }

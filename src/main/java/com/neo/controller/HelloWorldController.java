@@ -22,19 +22,19 @@ public class HelloWorldController {
     }
 
     @RequestMapping(value = "/v1/api/uploadModel", method = RequestMethod.GET)
-    public String uploadModel(@RequestParam Map<String, String> request) {
+    public String uploadModel(@RequestParam Map<String, String> request) throws IOException {
         return request.get("pwd");
     }
 
     @RequestMapping(value = "/v1/api/sendContext", method = RequestMethod.GET)
-    public String sendContext() {
+    public String sendContext(@RequestParam Map<String, String> request) throws IOException {
         return "sdf";
     }
 
     @RequestMapping(value = "/v1/api/getPersonas", method = RequestMethod.GET)
-    public String getPersonas(@RequestParam Map<String, String> request) {
-        //return personasService.getPersonas();
-        return "sdf";
+    public String getPersonas(@RequestParam Map<String, String> request) throws IOException {
+        return personasService.getPersonas();
+        //return "sdf";
     }
 
 }
