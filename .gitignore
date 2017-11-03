@@ -1,0 +1,17 @@
+### Gradle template
+.gradle
+gradle/
+build/
+
+### Maven template
+target/
+
+### Java template
+# Compiled class file
+*.class
+
+### system file
+.DS_Store
+
+### IDE
+.idea/
