@@ -11,7 +11,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import com.neo.dao.PersonasDao;
-import com.neo.common.Context;
+import com.neo.common.Entity;
 import com.neo.service.PersonasService;
 
 /**
@@ -26,9 +26,9 @@ public class PersonasServiceImpl implements PersonasService {
     private PersonasDao personasDao;
 
     @Override
-    public Context getPersonas(Map<String, String> request) throws IOException {
+    public Entity getPersonas(Map<String, String> request) throws IOException {
         String row = personasDao.findByRowKey(request.get("table"), request.get("key"));
         JSONObject obj = JSON.parseObject(row);
-        return new Context(obj);
+        return new Entity(obj);
     }
 }

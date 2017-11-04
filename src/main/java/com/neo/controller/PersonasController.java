@@ -7,7 +7,7 @@ import java.util.Map;
 import java.io.IOException;
 
 import com.neo.service.PersonasService;
-import com.neo.common.Context;
+import com.neo.common.Entity;
 import com.alibaba.fastjson.JSONObject;
 
 @RestController
@@ -17,17 +17,17 @@ public class PersonasController {
     private PersonasService personasService;
 
     @RequestMapping(value = "/v1/api/getPersonas", method = RequestMethod.GET)
-    public Context getPersonas(@RequestParam Map<String, String> request) throws IOException {
+    public Entity getPersonas(@RequestParam Map<String, String> request) throws IOException {
         return personasService.getPersonas(request);
     }
 
     @RequestMapping(value = "/v1/api/postPersonas", method = RequestMethod.POST)
-    public Context postPersonas(@RequestParam Map<String, String> request) throws IOException {
+    public Entity postPersonas(@RequestParam Map<String, String> request) throws IOException {
         return personasService.getPersonas(request);
     }
 
     @RequestMapping(value = "/v1/api/putPersonas", method = RequestMethod.PUT)
-    public Context putPersonas(@RequestParam Map<String, String> request) throws IOException {
+    public Entity putPersonas(@RequestParam Map<String, String> request) throws IOException {
         return personasService.getPersonas(request);
     }
 

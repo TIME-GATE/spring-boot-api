@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.apache.commons.lang.StringUtils;
 import java.util.Map;
 
-import com.neo.common.Context;
+import com.neo.common.Entity;
 
 public interface PersonasService {
 
@@ -14,5 +14,5 @@ public interface PersonasService {
      * @param
      * @return
      */ 
-    Context getPersonas(Map<String, String> request) throws IOException;
+    Entity getPersonas(Map<String, String> request) throws IOException;
 }
