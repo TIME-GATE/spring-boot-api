@@ -3,7 +3,10 @@ package com.neo.common;
 import java.io.IOException;
 import org.junit.Before;
 import java.util.List;
+import java.util.Map;
 import java.util.ArrayList;
+import java.util.NavigableMap;
+import com.alibaba.fastjson.JSON;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.commons.lang.StringUtils;
@@ -27,15 +30,14 @@ public class HbaseClient {
         conf.set("hbase.zookeeper.property.clientPort", "2181");
     }
 
-    public static Result queryTableByRowKey(String tableName, String row) throws IOException {
+    public static String findByRowKey(String tableName, String row) throws IOException {
         // 取得数据对象
         HTable table = new HTable(conf, tableName);
-
-        // 获取操作对象
         Get get = new Get(Bytes.toBytes(row));
+        Result result = table.get(get);
+        Map<byte[], NavigableMap<byte[], NavigableMap<Long, byte[]>>> map = result.getMap();
 
-        // 获取查询结果
-        return table.get(get);
+        return JSON.toJSONString(map);
     }
 
 }
