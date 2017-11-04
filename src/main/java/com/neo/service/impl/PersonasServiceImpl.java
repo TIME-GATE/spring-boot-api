@@ -6,10 +6,11 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-import com.neo.common.HbaseClient;
+import com.neo.dao.PersonasDao;
 import com.neo.common.Context;
 import com.neo.service.PersonasService;
 
@@ -21,9 +22,12 @@ import com.neo.service.PersonasService;
 @Service
 public class PersonasServiceImpl implements PersonasService {
 
+    @Autowired
+    private PersonasDao personasDao;
+
     @Override
     public Context getPersonas(Map<String, String> request) throws IOException {
-        String row = HbaseClient.findByRowKey(request.get("table"), request.get("key"));
+        String row = personasDao.findByRowKey(request.get("table"), request.get("key"));
         JSONObject obj = JSON.parseObject(row);
         return new Context(obj);
     }
