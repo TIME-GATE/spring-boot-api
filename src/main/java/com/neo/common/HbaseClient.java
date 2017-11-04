@@ -1,20 +1,22 @@
 package com.neo.common;
 
 import java.io.IOException;
+import org.junit.Before;
+import java.util.List;
+import java.util.ArrayList;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
 
-import org.junit.Before;
-import java.util.List;
 
-public class HbaseModel {
+public class HbaseClient {
 
     // 静态配置
     private static Configuration conf = null;
@@ -25,8 +27,7 @@ public class HbaseModel {
         conf.set("hbase.zookeeper.property.clientPort", "2181");
     }
 
-    public static void queryTableByRowKey(String tableName, String row) throws IOException {
-
+    public static Result queryTableByRowKey(String tableName, String row) throws IOException {
         // 取得数据对象
         HTable table = new HTable(conf, tableName);
 
@@ -34,12 +35,7 @@ public class HbaseModel {
         Get get = new Get(Bytes.toBytes(row));
 
         // 获取查询结果
-        Result result = table.get(get);
-
-        // 转换为字节
-        byte[] singleRow = result.getRow();
-
-        // 打印结果
-        System.out.println(new String(singleRow));
+        return table.get(get);
     }
+
 }
