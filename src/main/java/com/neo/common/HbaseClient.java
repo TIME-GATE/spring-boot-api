@@ -1,7 +1,6 @@
 package com.neo.common;
 
 import java.io.IOException;
-import org.junit.Before;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
-
+import org.junit.Before;
 
 public class HbaseClient {
 

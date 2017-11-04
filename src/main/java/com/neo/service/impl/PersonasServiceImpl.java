@@ -23,7 +23,7 @@ public class PersonasServiceImpl implements PersonasService {
 
     @Override
     public Context getPersonas(Map<String, String> request) throws IOException {
-        String row = HbaseClient.findByRowKey("test", "row1");
+        String row = HbaseClient.findByRowKey(request.get("table"), request.get("key"));
         JSONObject obj = JSON.parseObject(row);
         return new Context(obj);
     }
