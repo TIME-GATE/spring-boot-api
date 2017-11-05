@@ -1,4 +1,4 @@
-package com.neo.dao.impl;
+package com.joseph.dao.impl;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,8 +24,8 @@ import org.apache.hadoop.hbase.HTableDescriptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.junit.Before;
 
-import com.neo.common.HbaseClient;
-import com.neo.dao.PersonasDao;
+import com.joseph.common.HbaseClient;
+import com.joseph.dao.PersonasDao;
 
 /**
  * Hbase Dao实现层

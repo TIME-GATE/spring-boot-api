@@ -1,4 +1,4 @@
-package com.neo.service.impl;
+package com.joseph.service.impl;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-import com.neo.dao.PersonasDao;
-import com.neo.common.Entity;
-import com.neo.service.PersonasService;
+import com.joseph.dao.PersonasDao;
+import com.joseph.common.Entity;
+import com.joseph.service.PersonasService;
 
 /**
  * 客户画像逻辑实现

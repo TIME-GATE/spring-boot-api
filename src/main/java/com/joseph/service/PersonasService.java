@@ -1,10 +1,10 @@
-package com.neo.service;
+package com.joseph.service;
 
 import java.io.IOException;
 import org.apache.commons.lang.StringUtils;
 import java.util.Map;
 
-import com.neo.common.Entity;
+import com.joseph.common.Entity;
 
 /**
  * Service 接口层

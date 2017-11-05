@@ -1,4 +1,4 @@
-package com.neo.dao;
+package com.joseph.dao;
 
 import java.io.IOException;
 

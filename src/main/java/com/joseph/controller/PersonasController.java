@@ -1,4 +1,4 @@
-package com.neo.controller;
+package com.joseph.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 import java.io.IOException;
 
-import com.neo.service.PersonasService;
-import com.neo.common.Entity;
+import com.joseph.service.PersonasService;
+import com.joseph.common.Entity;
 import com.alibaba.fastjson.JSONObject;
 
 /**

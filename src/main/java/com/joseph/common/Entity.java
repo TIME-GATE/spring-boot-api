@@ -1,4 +1,4 @@
-package com.neo.common;
+package com.joseph.common;
 
 import java.util.Map;
 import com.alibaba.fastjson.JSON;

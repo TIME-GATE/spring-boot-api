@@ -1,4 +1,4 @@
-package com.neo.common;
+package com.joseph.common;
 
 import java.io.IOException;
 import org.apache.hadoop.conf.Configuration;
