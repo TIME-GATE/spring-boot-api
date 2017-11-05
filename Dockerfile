@@ -1,4 +1,4 @@
-FROM FROM jdk:8
+FROM jdk:8
 
 ADD spring-boot-api/build/libs/spring-boot-api-1.0-SNAPSHOT.jar app.jar
 
