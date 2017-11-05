@@ -10,6 +10,11 @@ import com.neo.service.PersonasService;
 import com.neo.common.Entity;
 import com.alibaba.fastjson.JSONObject;
 
+/**
+ * Api
+ *
+ * Created by Joseph on 05/11/2017.
+ */
 @RestController
 public class PersonasController {
 	

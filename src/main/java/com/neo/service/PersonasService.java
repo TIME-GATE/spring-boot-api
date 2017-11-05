@@ -6,6 +6,11 @@ import java.util.Map;
 
 import com.neo.common.Entity;
 
+/**
+ * Service 接口层
+ *
+ * Created by Joseph on 04/11/2017.
+ */
 public interface PersonasService {
 
     /**

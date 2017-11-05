@@ -21,13 +21,14 @@ import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
+import org.springframework.beans.factory.annotation.Value;
 import org.junit.Before;
 
 import com.neo.common.HbaseClient;
 import com.neo.dao.PersonasDao;
 
 /**
- * Hbase Dao层
+ * Hbase Dao实现层
  *
  * Created by Joseph on 04/11/2017.
  */
@@ -36,6 +37,7 @@ public class PersonasDaoImpl implements PersonasDao {
 
     @Override
     public String findByRowKey(String tableName, String row) throws IOException {
+
         // 取得数据对象
         HTable table = new HTable(HbaseClient.conf, tableName);
         Get get = new Get(Bytes.toBytes(row));

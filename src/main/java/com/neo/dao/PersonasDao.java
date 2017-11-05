@@ -3,7 +3,7 @@ package com.neo.dao;
 import java.io.IOException;
 
 /**
- * Hbase Dao层
+ * Hbase Dao接口层
  *
  * Created by Joseph on 04/11/2017.
  */

@@ -6,7 +6,9 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * Created by Joseph on 20/10/2017
+ * 定义返回实体
+ * 
+ * Created by Joseph on 04/11/2017
  */
 
 public class Entity {
