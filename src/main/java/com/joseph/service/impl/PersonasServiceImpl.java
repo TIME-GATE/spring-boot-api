@@ -15,7 +15,7 @@ import com.joseph.common.Entity;
 import com.joseph.service.PersonasService;
 
 /**
- * 客户画像逻辑实现
+ * 逻辑实现
  *
  * Created by Joseph on 05/11/2017.
  */

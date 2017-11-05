@@ -14,7 +14,7 @@ import com.joseph.common.Entity;
 public interface PersonasService {
 
     /**
-     * 获取客户画像
+     * 获取数据
      *
      * @param
      * @return
