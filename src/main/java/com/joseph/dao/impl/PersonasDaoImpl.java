@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.regex.*;
 import java.util.NavigableMap;
 import com.alibaba.fastjson.JSON;
 import net.sf.json.JSONObject;
@@ -19,6 +20,7 @@ import org.apache.hadoop.hbase.KeyValue;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.filter.PrefixFilter;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
 import org.springframework.beans.factory.annotation.Value;
@@ -45,6 +47,54 @@ public class PersonasDaoImpl implements PersonasDao {
         
         NavigableMap<byte[], NavigableMap<byte[], NavigableMap<Long, byte[]>>> map = result.getMap();
         return HbaseClient.mapToJSONString(map);
+
+    }
+
+    @Override
+    public String findByRowColumn(Map<String, String> request) throws IOException {
+
+        Table table = new HTable(HbaseClient.conf, request.get("table"));
+        Get get = new Get(Bytes.toBytes(request.get("row")));
+        get.setMaxVersions();
+        get.addColumn(Bytes.toBytes(request.get("family")), Bytes.toBytes(request.get("column")));
+        Result result = table.get(get);
+
+        NavigableMap<byte[], NavigableMap<byte[], NavigableMap<Long, byte[]>>> map = result.getMap();
+        return HbaseClient.mapToJSONString(map);
+    
+    }
+
+    @Override
+    public String findAllRowByPre(Map<String, String> request) throws IOException {
+
+        Table table = new HTable(HbaseClient.conf, request.get("table"));
+        Scan scan = new Scan();
+        scan.setFilter(new PrefixFilter(Bytes.toBytes(request.get("row"))));
+        ResultScanner resultScanner = table.getScanner(scan);
+        
+        Map<String, JSONObject> map = new HashMap<String, JSONObject>();
+        for(Result result : resultScanner) {
+            JSONObject jsonObject = JSONObject.fromObject(HbaseClient.mapToJSONString(result.getMap()));
+            map.put(Bytes.toString(result.getRow()), jsonObject);
+        }
+        return JSON.toJSONString(map);
+
+    }
+
+    @Override
+    public String findAllRowByFilter(Map<String, String> request) throws IOException {
+
+        Table table = new HTable(HbaseClient.conf, request.get("table"));
+        Scan scan = new Scan();
+        ResultScanner resultScanner = table.getScanner(scan);
+        Map<String, JSONObject> map = new HashMap<String, JSONObject>();
+        for(Result result : resultScanner) {
+            if(Pattern.matches(".*" + request.get("match") + ".*", Bytes.toString(result.getRow()))) {
+                JSONObject jsonObject = JSONObject.fromObject(HbaseClient.mapToJSONString(result.getMap()));
+                map.put(Bytes.toString(result.getRow()), jsonObject);
+            }
+        }
+        return JSON.toJSONString(map);
 
     }
 

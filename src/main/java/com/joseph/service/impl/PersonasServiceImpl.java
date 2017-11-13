@@ -33,6 +33,27 @@ public class PersonasServiceImpl implements PersonasService {
     }
 
     @Override
+    public Entity getColumnVersion(Map<String, String> request) throws IOException {
+        String row = personasDao.findByRowColumn(request);
+        JSONObject obj = JSON.parseObject(row);
+        return new Entity(obj);
+    }
+
+    @Override
+    public Entity regixRowByPre(Map<String, String> request) throws IOException {
+        String allRow = personasDao.findAllRowByPre(request);
+        JSONObject obj = JSON.parseObject(allRow);
+        return new Entity(obj);
+    }
+
+    @Override
+    public Entity regixTableFilter(Map<String, String> request) throws IOException {
+        String allRow = personasDao.findAllRowByFilter(request);
+        JSONObject obj = JSON.parseObject(allRow);
+        return new Entity(obj);
+    }
+
+    @Override
     public Entity putPersonas(Map<String, String> request) throws IOException {
         String row = personasDao.putByRowKey(request);
         JSONObject obj = JSON.parseObject(row);

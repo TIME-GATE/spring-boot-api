@@ -26,9 +26,19 @@ public class PersonasController {
         return personasService.getPersonas(request);
     }
 
-    @RequestMapping(value = "/v1/api/getPersonasHistory", method = RequestMethod.GET)
-    public Entity getPersonasHistory(@RequestParam Map<String, String> request) throws IOException {
-        return personasService.getPersonas(request);
+    @RequestMapping(value = "/v1/api/getColumnVersion", method = RequestMethod.GET)
+    public Entity getColumnVersion(@RequestParam Map<String, String> request) throws IOException {
+        return personasService.getColumnVersion(request);
+    }
+
+    @RequestMapping(value = "/v1/api/regixRowByPre", method = RequestMethod.GET)
+    public Entity regixRowByPre(@RequestParam Map<String, String> request) throws IOException {
+        return personasService.regixRowByPre(request);
+    }
+
+    @RequestMapping(value = "/v1/api/regixTableFilter", method = RequestMethod.GET)
+    public Entity regixTableFilter(@RequestParam Map<String, String> request) throws IOException {
+        return personasService.regixTableFilter(request);
     }
 
     @RequestMapping(value = "/v1/api/putPersonas", method = RequestMethod.PUT)

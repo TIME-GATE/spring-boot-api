@@ -18,5 +18,29 @@ public interface PersonasDao {
      */ 
     String findByRowKey(Map<String, String> request) throws IOException;
 
+     /**
+     * 根据Id与标签获取数据
+     *
+     * @param
+     * @return
+     */ 
+    String findByRowColumn(Map<String, String> request) throws IOException;
+
+    /**
+     * 根据前缀获取所有数据
+     *
+     * @param
+     * @return
+     */
+    String findAllRowByPre(Map<String, String> request) throws IOException;
+    
+    /**
+     * 扫描过滤获取所有数据
+     *
+     * @param
+     * @return
+     */
+    String findAllRowByFilter(Map<String, String> request) throws IOException;
+
     String putByRowKey(Map<String, String> request) throws IOException;
 }
