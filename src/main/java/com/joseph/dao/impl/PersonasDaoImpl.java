@@ -36,32 +36,35 @@ import com.joseph.dao.PersonasDao;
 public class PersonasDaoImpl implements PersonasDao {
 
     @Override
-    public String findByRowKey(String tableName, String row) throws IOException {
+    public String findByRowKey(Map<String, String> request) throws IOException {
 
         // 取得数据对象
-        HTable table = new HTable(HbaseClient.conf, tableName);
-        Get get = new Get(Bytes.toBytes(row));
+        HTable table = new HTable(HbaseClient.conf, request.get("table"));
+        Get get = new Get(Bytes.toBytes(request.get("row")));
         Result result = table.get(get);
         
         NavigableMap<byte[], NavigableMap<byte[], NavigableMap<Long, byte[]>>> map = result.getMap();
-        Map<String, Map<String, Map<String, String>>> map_1 = new HashMap<String, Map<String, Map<String, String>>>();
-            
-        for(byte[] key1 : map.keySet()){
-            NavigableMap<byte[], NavigableMap<Long, byte[]>> map1 = map.get(key1);
-            Map<String, Map<String, String>> map_2 = new HashMap<String, Map<String, String>>();
-            for(byte[] key2 : map1.keySet()){
-                NavigableMap<Long, byte[]> map2 = map1.get(key2);
-                Map<String, String> map_3 = new HashMap<String, String>();
-                for(Long key3 : map2.keySet()){
-                    map_3.put(Long.toString(key3), Bytes.toString(map2.get(key3)));
-                }
-                map_2.put(Bytes.toString(key2), map_3);
-            }
-            map_1.put(Bytes.toString(key1), map_2);
-        }
-
-        return JSON.toJSONString(map_1);
+        return HbaseClient.mapToJSONString(map);
 
     }
+
+    @Override
+    public String putByRowKey(Map<String, String> request) throws IOException {
+        // 插入数据
+        if(!"personas".equals(request.get("table"))) return null;
+        HTable table = new HTable(HbaseClient.conf, request.get("table"));
+        List<Put> putList = new ArrayList<Put>();
+            
+        Put put;
+        for(int i=0; i<10; i++) {
+            put = new Put(Bytes.toBytes("row" + i));
+            put.addColumn(Bytes.toBytes("base"), Bytes.toBytes("name"), Bytes.toBytes("bookName" + i));
+            putList.add(put);
+        }
+        table.put(putList);
+
+        return null;
+    }
+
 
 }

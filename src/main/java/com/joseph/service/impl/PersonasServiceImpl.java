@@ -27,8 +27,16 @@ public class PersonasServiceImpl implements PersonasService {
 
     @Override
     public Entity getPersonas(Map<String, String> request) throws IOException {
-        String row = personasDao.findByRowKey(request.get("table"), request.get("key"));
+        String row = personasDao.findByRowKey(request);
         JSONObject obj = JSON.parseObject(row);
         return new Entity(obj);
     }
+
+    @Override
+    public Entity putPersonas(Map<String, String> request) throws IOException {
+        String row = personasDao.putByRowKey(request);
+        JSONObject obj = JSON.parseObject(row);
+        return new Entity(obj);
+    }
+
 }

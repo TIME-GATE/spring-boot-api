@@ -26,14 +26,14 @@ public class PersonasController {
         return personasService.getPersonas(request);
     }
 
-    @RequestMapping(value = "/v1/api/postPersonas", method = RequestMethod.POST)
-    public Entity postPersonas(@RequestParam Map<String, String> request) throws IOException {
+    @RequestMapping(value = "/v1/api/getPersonasHistory", method = RequestMethod.GET)
+    public Entity getPersonasHistory(@RequestParam Map<String, String> request) throws IOException {
         return personasService.getPersonas(request);
     }
 
     @RequestMapping(value = "/v1/api/putPersonas", method = RequestMethod.PUT)
     public Entity putPersonas(@RequestParam Map<String, String> request) throws IOException {
-        return personasService.getPersonas(request);
+        return personasService.putPersonas(request);
     }
 
 }

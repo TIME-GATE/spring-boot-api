@@ -1,6 +1,7 @@
 package com.joseph.dao;
 
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * Hbase Dao接口层
@@ -15,5 +16,7 @@ public interface PersonasDao {
      * @param
      * @return
      */ 
-    String findByRowKey(String tableName, String row) throws IOException;
+    String findByRowKey(Map<String, String> request) throws IOException;
+
+    String putByRowKey(Map<String, String> request) throws IOException;
 }

@@ -20,4 +20,6 @@ public interface PersonasService {
      * @return
      */ 
     Entity getPersonas(Map<String, String> request) throws IOException;
+
+    Entity putPersonas(Map<String, String> request) throws IOException;
 }
