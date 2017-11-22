@@ -7,11 +7,11 @@
 
 ### 二、运行测试
 
-*[测试](./doc/test.md)
+* [测试](./doc/test.md)
 
-### 三、本地spring-boot + zookeeper + hadoop + Hbase环境搭建参考
+### 三、zookeeper + hadoop + Hbase搭建参考
 
-*[参考](./doc/doc.md)
+* [参考](./doc/doc.md)
 
 ### 四、遇到问题
 
