@@ -63,6 +63,9 @@ public class RedisPool {
     }
   }
 
+  /**
+   * 获取Cache
+   */
   public String get(String key) {
     Jedis jedis = this.getJedis();
     String str = jedis.get(key);
@@ -70,6 +73,9 @@ public class RedisPool {
     return str;
   }
 
+  /**
+   * 插入Cache
+   */
   public void set(String key, String value) {
     try {
       Jedis jedis = this.getJedis();
