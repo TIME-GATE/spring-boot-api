@@ -20,7 +20,7 @@ public class RedisClient {
     try {
       jedis.set(key, value);
     } catch(Exception e) {
-      
+      e.printStackTrace();
     }
   }
 

@@ -23,4 +23,20 @@ public interface CacheService {
      * @return
      */ 
     Entity setCache(Map<String, String> request) throws IOException;
+
+    /**
+     * 获取缓存数据
+     *
+     * @param
+     * @return
+     */ 
+    Entity getCacheByPool(Map<String, String> request) throws IOException;
+    
+    /**
+     * 插入缓存数据
+     *
+     * @param
+     * @return
+     */ 
+    Entity setCacheByPool(Map<String, String> request) throws IOException;
 }

@@ -30,4 +30,14 @@ public class CacheController {
         return cacheService.setCache(request);
     }
 
+    @RequestMapping(value = "/v1/api/getCacheByPool", method = RequestMethod.GET)
+    public Entity getCacheByPool(@RequestParam Map<String, String> request) throws IOException {
+        return cacheService.getCacheByPool(request);
+    }
+
+    @RequestMapping(value = "/v1/api/setCacheByPool", method = RequestMethod.POST)
+    public Entity setCacheByPool(@RequestParam Map<String, String> request) throws IOException {
+        return cacheService.setCacheByPool(request);
+    }
+
 }
