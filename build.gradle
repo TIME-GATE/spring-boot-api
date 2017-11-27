@@ -38,6 +38,7 @@ dependencies {
     compile('org.apache.hbase:hbase-client:1.1.2')
     compile('com.alibaba:fastjson:1.2.31')
     compile('net.sf.json-lib:json-lib:2.4:jdk15')
+    compile('redis.clients:jedis:2.9.0')
 
     runtime('org.postgresql:postgresql:42.1.1')
 }
