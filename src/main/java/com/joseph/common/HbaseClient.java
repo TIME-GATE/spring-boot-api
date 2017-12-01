@@ -1,12 +1,9 @@
 package com.joseph.common;
 
-import java.io.IOException;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.NavigableMap;
 import com.alibaba.fastjson.JSON;
-import net.sf.json.JSONObject;
-
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;

@@ -1,11 +1,5 @@
 package com.joseph.common;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.junit.Before;
-import java.io.IOException;
-
 import redis.clients.jedis.Jedis;
 
 public class RedisClient {
@@ -19,7 +13,7 @@ public class RedisClient {
     public void set(String key, String value) {
         try {
           jedis.set(key, value);
-        } catch(Exception e) {
+        } catch (Exception e) {
           e.printStackTrace();
         }
     }

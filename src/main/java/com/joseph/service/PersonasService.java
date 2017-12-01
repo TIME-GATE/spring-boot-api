@@ -1,7 +1,6 @@
 package com.joseph.service;
 
 import java.io.IOException;
-import org.apache.commons.lang.StringUtils;
 import java.util.Map;
 
 import com.joseph.common.Entity;
@@ -16,7 +15,7 @@ public interface PersonasService {
     /**
      * 获取全部数据
      *
-     * @param
+     * @params
      * @return
      */ 
     Entity getPersonas(Map<String, String> request) throws IOException;
@@ -24,7 +23,7 @@ public interface PersonasService {
     /**
      * 获取某属性历史数据
      *
-     * @param
+     * @params
      * @return
      */
     Entity getColumnVersion(Map<String, String> request) throws IOException;
@@ -32,7 +31,7 @@ public interface PersonasService {
     /**
      * 以特定前缀匹配客户所有数据
      *
-     * @param
+     * @params
      * @return
      */
     Entity regixRowByPre(Map<String, String> request) throws IOException;
@@ -40,7 +39,7 @@ public interface PersonasService {
     /**
      * 表扫描获取所有数据
      *
-     * @param
+     * @params
      * @return
      */
     Entity regixTableFilter(Map<String, String> request) throws IOException;
@@ -48,7 +47,7 @@ public interface PersonasService {
     /**
      * 插入客户画像数据
      *
-     * @param
+     * @params
      * @return
      */
     Entity putPersonas(Map<String, String> request) throws IOException;

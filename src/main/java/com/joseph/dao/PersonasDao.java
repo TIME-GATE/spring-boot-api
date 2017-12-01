@@ -13,7 +13,7 @@ public interface PersonasDao {
     /**
      * 获取客户 DAO接口
      *
-     * @param
+     * @params
      * @return
      */ 
     String findByRowKey(Map<String, String> request) throws IOException;
@@ -21,7 +21,7 @@ public interface PersonasDao {
      /**
      * 根据Id与标签获取数据
      *
-     * @param
+     * @params
      * @return
      */ 
     String findByRowColumn(Map<String, String> request) throws IOException;
@@ -29,7 +29,7 @@ public interface PersonasDao {
     /**
      * 根据前缀获取所有数据
      *
-     * @param
+     * @params
      * @return
      */
     String findAllRowByPre(Map<String, String> request) throws IOException;
@@ -37,10 +37,16 @@ public interface PersonasDao {
     /**
      * 扫描过滤获取所有数据
      *
-     * @param
+     * @params
      * @return
      */
     String findAllRowByFilter(Map<String, String> request) throws IOException;
 
+    /**
+     * 添加数据
+     *
+     * @params
+     * @return
+     */
     String putByRowKey(Map<String, String> request) throws IOException;
 }

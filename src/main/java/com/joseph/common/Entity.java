@@ -1,8 +1,5 @@
 package com.joseph.common;
 
-import java.util.Map;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;  
 import com.alibaba.fastjson.JSONObject;
 
 /**
@@ -15,7 +12,7 @@ public class Entity {
 
     public int code;
     public String msg;
-    public JSONObject data;
+    public JSONObject data = new JSONObject();
 
     public Entity() {
         this.code = 0;

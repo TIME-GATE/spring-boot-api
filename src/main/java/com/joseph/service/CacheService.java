@@ -1,7 +1,6 @@
 package com.joseph.service;
 
 import java.io.IOException;
-import org.apache.commons.lang.StringUtils;
 import java.util.Map;
 
 import com.joseph.common.Entity;
@@ -11,7 +10,7 @@ public interface CacheService {
     /**
      * 获取缓存数据
      *
-     * @param
+     * @params
      * @return
      */ 
     Entity getCache(Map<String, String> request) throws IOException;
@@ -19,7 +18,7 @@ public interface CacheService {
     /**
      * 插入缓存数据
      *
-     * @param
+     * @params
      * @return
      */ 
     Entity setCache(Map<String, String> request) throws IOException;
@@ -27,7 +26,7 @@ public interface CacheService {
     /**
      * 获取缓存数据
      *
-     * @param
+     * @params
      * @return
      */ 
     Entity getCacheByPool(Map<String, String> request) throws IOException;
@@ -35,7 +34,7 @@ public interface CacheService {
     /**
      * 插入缓存数据
      *
-     * @param
+     * @params
      * @return
      */ 
     Entity setCacheByPool(Map<String, String> request) throws IOException;
