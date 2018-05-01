@@ -7,6 +7,12 @@
 
 ### 二、运行测试
 
+```bash
+gradle clean
+gradle build
+gradle bootrun
+```
+
 * [测试](./doc/test.md)
 
 ### 三、zookeeper + hadoop + Hbase搭建参考

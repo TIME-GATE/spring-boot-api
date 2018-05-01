@@ -1,6 +1,8 @@
-FROM jdk:8
+FROM n3ziniuka5/ubuntu-oracle-jdk:16.04-JDK8
 
-ADD spring-boot-api/build/libs/spring-boot-api-1.0-SNAPSHOT.jar app.jar
+RUN apt-get update
+
+ADD ./build/libs/spring-boot-1.0-SNAPSHOT.jar app.jar
 
 RUN sh -c 'touch /app.jar'
 

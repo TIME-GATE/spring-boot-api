@@ -9,6 +9,6 @@ image='dreamboat/spring-boot-api:'${tag}
 
 docker build -t ${image} .
 
-docker push ${image}
+#docker push ${image}
 
 echo ${image}
