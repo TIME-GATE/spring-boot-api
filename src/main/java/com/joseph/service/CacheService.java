@@ -1,6 +1,7 @@
 package com.joseph.service;
 
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 import java.util.Map;
 
 import com.joseph.common.Entity;
@@ -38,4 +39,13 @@ public interface CacheService {
      * @return
      */ 
     Entity setCacheByPool(Map<String, String> request) throws IOException;
+
+    /**
+     * 判断KEY存在
+     *
+     * @params
+     * @return
+     */
+    Entity existKeyCacheByPool(Map<String, String> request) throws IOException;
+
 }

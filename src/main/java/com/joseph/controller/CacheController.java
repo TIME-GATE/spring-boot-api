@@ -40,4 +40,9 @@ public class CacheController {
         return cacheService.setCacheByPool(request);
     }
 
+    @RequestMapping(value = "/v1/api/existKeyCacheByPool", method = RequestMethod.GET)
+    public Entity existKeyCacheByPool(@RequestParam Map<String, String> request) throws IOException {
+        return cacheService.existKeyCacheByPool(request);
+    }
+
 }

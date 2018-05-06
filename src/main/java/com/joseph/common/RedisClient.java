@@ -12,9 +12,9 @@ public class RedisClient {
 
     public void set(String key, String value) {
         try {
-          jedis.set(key, value);
+            jedis.set(key, value);
         } catch (Exception e) {
-          e.printStackTrace();
+            e.printStackTrace();
         }
     }
 

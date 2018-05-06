@@ -48,4 +48,13 @@ public class CacheServiceImpl implements CacheService {
         redisPool.set(request.get("key"), request.get("value"));
         return new Entity();
     }
+
+    @Override
+    public Entity existKeyCacheByPool(Map<String, String> request) throws IOException {
+        Boolean key = redisPool.exists(request.get("key"));
+        JSONObject obj = new JSONObject();
+        obj.put(request.get("key"), key);
+        return new Entity(obj);
+    }
+
 }
